@@ -41,7 +41,7 @@
                         <span class="fw-bolder w-25">Clothes :</span> 
                         <input value ='00' id="clothes-exp-field" class="ms-2 bg-secondary border border-info rounded-3 bg-opacity-10" type="number">
                     </div><br>
-                    <button id="calc-btn" type="button" class="btn btn-primary">Calculate</button>
+                    <button  id="calc-btn" type="button" class="btn btn-primary">Calculate</button>
                     <br><br>
                     <h5 class="text-center">Total Expenses : <span id="total-exp">00</span></h5>
                     <h5 class="text-center">Balance : <span id="current-balance">00</span></h5>
@@ -55,15 +55,24 @@
                           <button id="error-btn" type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
                         </div>
                       </div><br>
+                      <div id="error-msgs-negative" class="toast error-msg align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="d-flex">
+                          <div class="toast-body text-danger">
+                            <p id="error-text">Opps! Don't allow negative number!</p>
+                         </div>
+                          <button id="error-btn" type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                      </div><br>
+                      <!-- saving section -->
                     <div class="d-flex align-items-center justify-content-around">
                         <h5>Save :</h5>
-                        <input value ='00' class="ms-2 bg-secondary w-25 border border-info rounded-3 bg-opacity-10" type="number"> 
+                        <input id="saving-input-field" value ='00' class="ms-2 bg-secondary w-25 border border-info rounded-3 bg-opacity-10" type="number"> 
                         <h5>%</h5>
-                        <button type="button" class="btn btn-primary">Save</button>
+                        <button id="saving-btn" type="button" class="btn btn-primary">Save</button>
                         <br><br>
                     </div><br>
-                    <h5 class="text-center">Saving Amount : <span>00</span></h5>
-                    <h5 class="text-center">Remaining Balance : <span>00</span></h5>
+                    <h5 class="text-center">Saving Amount : <span id="saving-ammount">00</span></h5>
+                    <h5 class="text-center">Remaining Balance : <span id="remaining-balance">00</span></h5>
                 </div>
 
                 
