@@ -1,41 +1,38 @@
-
- 
+// string to number converter
+function convertNum (idName){
+        const getID = document.getElementById(idName).value; 
+        const convertNumber = parseFloat(getID);
+        return convertNumber;
+}
 document.getElementById('calc-btn').addEventListener('click', function(){
-const incomeField = document.getElementById('income-field').value;
-const incomeValuNum = parseFloat(incomeField);
-const foodExpField = document.getElementById('food-exp-field').value;
-const foodExpValuNum = parseFloat(foodExpField);
-const rentExpField = document.getElementById('rent-exp-field').value;
-const rentExpValuNum = parseFloat(rentExpField);
-const clothesExpField = document.getElementById('clothes-exp-field').value;
-const clothesExpValuNum = parseInt(clothesExpField);
+const incomeValuNum = convertNum('income-field');
+const foodExpValuNum = convertNum('food-exp-field');
+const rentExpValuNum = convertNum('rent-exp-field');
+const clothesExpValuNum = convertNum('clothes-exp-field');
 const totalExpCenter = document.getElementById('total-exp');
 const balancecenter = document.getElementById('current-balance');
 if (incomeValuNum >= 0 && foodExpValuNum >= 0 && rentExpValuNum >= 0 && clothesExpValuNum >= 0  ){
-        const totalExp = parseFloat(foodExpField)+parseFloat(rentExpField)+parseFloat(clothesExpField);
-        const curretBalance = parseFloat(parseFloat(incomeField) - totalExp);
-        if(totalExp < incomeField){
+        const totalExp = parseFloat(foodExpValuNum)+parseFloat(rentExpValuNum)+parseFloat(clothesExpValuNum);
+        const curretBalance = parseFloat(incomeValuNum - totalExp);
+        if(totalExp < incomeValuNum){
                 balancecenter.innerText = curretBalance;
                 totalExpCenter.innerText = totalExp;
                 const error = document.getElementById('error-expenses-msg');
-                error.style.display='none'
+                error.style.display='none';
                 }
         else{
                 const error = document.getElementById('error-expenses-msg');
-                error.style.display='block'
+                error.style.display='block';
                 }
         const error = document.getElementById('error-negative-msg');
-        error.style.display='none'
+        error.style.display='none';
     }
    
 
 else{
         const error = document.getElementById('error-negative-msg');
-        error.style.display='block'
-
-    }
-
-
+        error.style.display='block';
+    };
 });
 
         //  seving function section
@@ -69,19 +66,17 @@ document.getElementById('saving-btn').addEventListener('click', function(){
         else{
                 const error = document.getElementById('error-saving-msg');
                 error.style.display='block' 
-        }
-
+        };
 });
 
 
+
+// toast close button function
 function closeButton(buttonName){
         const idCall = document.getElementById(buttonName + '-msg');
         idCall.style.display="none";
-}
-
-
-
-       // toast close button function
+};
+     
 document.getElementById('error-exp-btn').addEventListener('click', function(){
  closeButton('error-expenses');
 });
