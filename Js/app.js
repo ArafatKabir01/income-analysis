@@ -44,12 +44,32 @@ document.getElementById('saving-btn').addEventListener('click', function(){
         const incomeValuNum = parseFloat(incomeField);
         const savingAmmount = document.getElementById('saving-ammount');
         const savingInputField = document.getElementById('saving-input-field').value;
+        const remainingBalance = document.getElementById('remaining-balance');
+        const balancecenter = document.getElementById('current-balance');
         const savingInputFieldValue = parseFloat(savingInputField);
-        const savingInputFieldValueParsentage = savingInputFieldValue / 100;
-        savingAmmount.innerText =Math.floor(incomeValuNum * savingInputFieldValueParsentage) ;
-       
-        
+        if(savingInputFieldValue >= 0){
+                const savingInputFieldValueParsentage = savingInputFieldValue / 100;
+                savingAmmount.innerText =Math.floor(incomeValuNum * savingInputFieldValueParsentage);
+                const error = document.getElementById('error-msgs-negative');
+                error.style.display='none'
+        }
+        else{
+                const error = document.getElementById('error-msgs-negative');
+        error.style.display='block' 
+     
+        }
 
+        const balancecenterNum = parseFloat(balancecenter.innerText);
+        const remainingBal = balancecenterNum - parseFloat(savingAmmount.innerText);
+        if (parseFloat(remainingBal) > 0){
+                remainingBalance.innerText = remainingBal;
+                const error = document.getElementById('error-msgs-saving');
+                error.style.display='none' 
+        }
+        else{
+                const error = document.getElementById('error-msgs-saving');
+                error.style.display='block' 
+        }
 
 });
 
