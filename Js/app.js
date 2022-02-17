@@ -4,6 +4,7 @@ function convertNum (idName){
         const convertNumber = parseFloat(getID);
         return convertNumber;
 }
+
 document.getElementById('calc-btn').addEventListener('click', function(){
 const incomeValuNum = convertNum('income-field');
 const foodExpValuNum = convertNum('food-exp-field');
@@ -37,13 +38,12 @@ else{
 
         //  seving function section
 document.getElementById('saving-btn').addEventListener('click', function(){
-        const incomeField = document.getElementById('income-field').value;
-        const incomeValuNum = parseFloat(incomeField);
+        
+        const incomeValuNum = convertNum('income-field');
         const savingAmmount = document.getElementById('saving-ammount');
-        const savingInputField = document.getElementById('saving-input-field').value;
         const remainingBalance = document.getElementById('remaining-balance');
         const balancecenter = document.getElementById('current-balance');
-        const savingInputFieldValue = parseFloat(savingInputField);
+        const savingInputFieldValue = convertNum('saving-input-field');
         if(savingInputFieldValue >= 0){
                 const savingInputFieldValueParsentage = savingInputFieldValue / 100;
                 savingAmmount.innerText =Math.floor(incomeValuNum * savingInputFieldValueParsentage);
@@ -68,9 +68,6 @@ document.getElementById('saving-btn').addEventListener('click', function(){
                 error.style.display='block' 
         };
 });
-
-
-
 // toast close button function
 function closeButton(buttonName){
         const idCall = document.getElementById(buttonName + '-msg');
