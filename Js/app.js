@@ -5,6 +5,19 @@ function convertNum (idName){
         return convertNumber;
 }
 
+// function errorHandleing (idRequare,value){
+//         const errorMsg = document.getElementById(idRequare)
+//         if(value == true){
+//                 const error = document.getElementById(idRequare);
+//                 error.classList.add('d-block');
+//         }
+//         else{
+//                 const error = document.getElementById(idRequare);
+//                 error.classList.add('d-none');
+//         }
+//         return errorMsg;
+// }
+
 document.getElementById('calc-btn').addEventListener('click', function(){
 const incomeValuNum = convertNum('income-field');
 const foodExpValuNum = convertNum('food-exp-field');
@@ -35,6 +48,8 @@ else{
         error.style.display='block';
     };
 });
+
+
 
         //  seving function section
 document.getElementById('saving-btn').addEventListener('click', function(){
